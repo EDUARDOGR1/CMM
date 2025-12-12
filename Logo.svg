@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600" height="520" viewBox="0 0 1600 520"
+     role="img" aria-label="Logo CMM.MX con texto completo">
+  <defs>
+    <!-- Reutilizamos el logo original (1000x1000) y lo escalamos para que quepa a la izquierda -->
+    <g id="origLogo">
+      <!-- Fondo azul -->
+      <rect x="0" y="0" width="1000" height="1000" fill="#083ea6"/>
+      <!-- Triángulo inferior-derecha blanco -->
+      <polygon points="1000,0 1000,1000 0,1000" fill="#ffffff"/>
+      <!-- Círculo centrado azul -->
+      <circle id="mainCircle" cx="500" cy="500" r="360" fill="#083ea6"/>
+      <!-- Triángulo superior-izquierda blanco recortado solo dentro del círculo -->
+      <clipPath id="circleClip">
+        <use href="#mainCircle"/>
+      </clipPath>
+      <polygon points="0,0 1000,0 0,1000" fill="#ffffff" clip-path="url(#circleClip)"/>
+      <!-- Marco exterior azul -->
+      <rect x="20" y="20" width="960" height="960" fill="none" stroke="#083ea6" stroke-width="40" />
+    </g>
+  </defs>
+
+  <!-- Fondo transparente del documento -->
+  <rect width="100%" height="100%" fill="none"/>
+
+  <!-- Colocamos el logo original, escalado a 440x440 y con un poco de margen -->
+  <g transform="translate(40,40) scale(0.44)">
+    <use href="#origLogo"/>
+  </g>
+
+  <!-- Texto a la derecha del logo -->
+  <g transform="translate(540,120)">
+    <!-- Línea principal: CMM.MX -->
+    <text x="0" y="84"
+          font-family="Montserrat, Arial, Helvetica, sans-serif"
+          font-weight="800"
+          font-size="120"
+          fill="#083ea6"
+          letter-spacing="2">
+      CMM.MX
+    </text>
+
+    <!-- Línea secundaria: nombre completo -->
+    <text x="0" y="170"
+          font-family="Montserrat, Arial, Helvetica, sans-serif"
+          font-weight="500"
+          font-size="36"
+          fill="#4a4a4a"
+          letter-spacing="1">
+      CENTRO DE MAQUINAS DE MEDICIÓN S. A. DE C. V.
+    </text>
+  </g>
+</svg>
