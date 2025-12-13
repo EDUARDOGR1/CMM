@@ -170,21 +170,21 @@
             border-color: var(--white);
         }
 
-        /* HEADER Y NAVEGACIÓN */
+        /* HEADER Y NAVEGACIÓN - CORREGIDO */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
             transition: var(--transition);
             background-color: var(--white);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         header.scrolled {
-            padding: 15px 0;
+            padding: 10px 0;
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
         }
 
@@ -195,13 +195,9 @@
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            text-decoration: none;
             display: flex;
             align-items: center;
+            text-decoration: none;
             transition: var(--transition);
         }
 
@@ -209,24 +205,51 @@
             transform: translateY(-2px);
         }
 
-        .logo span {
-            color: var(--secondary-color);
-            font-weight: 700;
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
-        .logo i {
-            margin-right: 10px;
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
-            color: var(--secondary-color);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 2px;
         }
 
+        .logo-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        /* NAV LINKS - CORREGIDO */
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 30px;
+            align-items: center;
         }
 
         .nav-links li {
-            margin-left: 40px;
+            position: relative;
         }
 
         .nav-links a {
@@ -268,6 +291,7 @@
             background: none;
             border: none;
             padding: 5px;
+            z-index: 1001;
         }
 
         /* HERO SECTION */
@@ -796,7 +820,7 @@
             font-size: 0.9rem;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE - CORREGIDO */
         @media (max-width: 992px) {
             .features-grid,
             .services-grid {
@@ -815,36 +839,75 @@
             .contact-info {
                 grid-template-columns: 1fr;
             }
+            
+            .logo-main {
+                font-size: 1.6rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.65rem;
+            }
+            
+            .logo-icon {
+                width: 55px;
+                height: 55px;
+                margin-right: 12px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
         }
 
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100vh;
                 background-color: var(--white);
                 flex-direction: column;
                 align-items: center;
-                padding: 30px 0;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
+                justify-content: center;
+                padding: 60px 30px;
+                transform: translateX(-100%);
                 opacity: 0;
                 transition: var(--transition);
-                z-index: 999;
+                z-index: 1000;
+                gap: 25px;
             }
             
             .nav-links.active {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
             }
             
             .nav-links li {
-                margin: 15px 0;
+                margin: 0;
+                width: 100%;
+                text-align: center;
             }
             
-            .mobile-menu-btn {
+            .nav-links a {
                 display: block;
+                padding: 15px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid var(--light-gray);
+                width: 100%;
+            }
+            
+            .nav-links a:after {
+                display: none;
+            }
+            
+            .nav-links a:hover {
+                background-color: var(--light-gray);
+                color: var(--primary-color);
             }
             
             .hero h1 {
@@ -892,6 +955,20 @@
             .cta p {
                 font-size: 1.1rem;
             }
+            
+            .logo-main {
+                font-size: 1.5rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.6rem;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -914,12 +991,23 @@
                 height: 50px;
             }
             
-            .logo {
-                font-size: 1.5rem;
+            .logo-container {
+                flex-direction: row;
+                align-items: center;
             }
             
-            .logo i {
-                font-size: 1.5rem;
+            .logo-main {
+                font-size: 1.4rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.55rem;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                margin-right: 8px;
             }
             
             .schedule-simple {
@@ -929,12 +1017,33 @@
     </style>
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- HEADER CON NAV CORREGIDO -->
     <header id="header">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-ruler-combined"></i>
-                CMM<span>.MX</span>
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 1000 1000" role="img" aria-label="Logo CMM.MX">
+                        <defs>
+                            <clipPath id="circleClip">
+                                <circle cx="500" cy="500" r="360"/>
+                            </clipPath>
+                        </defs>
+                        <!-- Fondo azul -->
+                        <rect x="0" y="0" width="1000" height="1000" fill="#003366"/>
+                        <!-- Triángulo inferior-derecha blanco -->
+                        <polygon points="1000,0 1000,1000 0,1000" fill="#ffffff"/>
+                        <!-- Círculo centrado azul -->
+                        <circle cx="500" cy="500" r="360" fill="#003366"/>
+                        <!-- Triángulo superior-izquierda blanco recortado solo dentro del círculo -->
+                        <polygon points="0,0 1000,0 0,1000" fill="#ffffff" clip-path="url(#circleClip)"/>
+                        <!-- Marco exterior azul -->
+                        <rect x="20" y="20" width="960" height="960" fill="none" stroke="#00509e" stroke-width="40" />
+                    </svg>
+                    <div class="logo-text">
+                        <div class="logo-main">CMM.MX</div>
+                        <div class="logo-sub">CENTRO DE MAQUINAS DE MEDICIÓN S. A. DE C. V.</div>
+                    </div>
+                </div>
             </a>
             
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -1075,22 +1184,50 @@
             </div>
             
             <div class="gallery-grid">
-                <div class="gallery-item animate-on-scroll">
-                    <img src="" alt="Máquina de medición por coordenadas de alta precisión">
-                </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="" alt="Brazo de medición articulado portátil">
-                </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="" alt="Sala de calibración metrológica">
-                </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="" alt="Software de análisis metrológico">
-                </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas (CMM).jpg" 
+                    alt="Máquina de medición por coordenadas tipo puente utilizada para inspección dimensional de alta precisión">
             </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas (CMM) Global Performance.jpg" 
+                    alt="CMM Global Performance con mesa de granito para mediciones tridimensionales de alta exactitud">
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas ZEISS CONTURA.jpg" 
+                    alt="Máquina de medición por coordenadas ZEISS CONTURA para control dimensional con palpado táctil">
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas Nikon ALTERA 10.7.6.jpg" 
+                    alt="CMM Nikon ALTERA 10.7.6 utilizada para inspección metrológica de piezas mecánicas">
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas ZEISS CONTURA G2.jpg" 
+                    alt="Máquina de medición por coordenadas ZEISS CONTURA G2 para mediciones de precisión en laboratorio">
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas ZEISS DB 1200.jpg" 
+                    alt="Máquina de medición por coordenadas ZEISS DB 1200 diseñada para inspección dimensional de piezas grandes">
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas COORD3 UNIVERSAL 1208.jpg" 
+                    alt="CMM COORD3 UNIVERSAL 1208 con estructura tipo puente para medición tridimensional precisa">
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/Máquina de Medición por Coordenadas WENZEL XO 55.jpg" 
+                    alt="Máquina de medición por coordenadas WENZEL XO 55 con estructura de granito para alta estabilidad térmica">
+            </div>
+
+        </div>
+
+
         </div>
     </section>
 
@@ -1141,7 +1278,6 @@
                     <div class="contact-details">
                         <h3>Email</h3>
                         <p>l.miranda@cmm-mexico.com</p>
-                        <p>ventas@cmm-mexico.com</p>
                     </div>
                 </div>
                 
@@ -1226,15 +1362,23 @@
             }
         });
 
-        // Mobile menu toggle
+        // Mobile menu toggle - CORREGIDO
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.getElementById('nav-links');
+        const body = document.body;
         
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            
+            if (navLinks.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                // Prevenir scroll cuando el menú está abierto
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = 'auto';
+            }
         });
 
         // Close mobile menu when clicking a link
@@ -1242,7 +1386,19 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = 'auto';
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = 'auto';
+            }
         });
 
         // Animación al hacer scroll
@@ -1273,6 +1429,13 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    // Cerrar menú móvil si está abierto
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        body.style.overflow = 'auto';
+                    }
+                    
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
